@@ -22,20 +22,27 @@ public class DoctorController {
     }
 
     @GetMapping("/{id}")
-    public String findDoctor(@PathVariable String id){
-        return id+" ";
+    public String findDoctor(@PathVariable long id){
+        if(doctorService.getDoctor(id)!=null){
+            return doctorService.getDoctor(id).toString();
+        }
+        else{
+            return "doctor not found";
+        }
     }
 
     @PutMapping(params = "id")
-    public String updateDoctor(@RequestParam String id,
+    public String updateDoctor(@RequestParam long id,
                                @RequestBody RequestDoctorDto doctorDto)
     {
+        doctorService.updateDoctor(id, doctorDto);
         return doctorDto.toString();
     }
 
     @DeleteMapping("/{id}")
-    public String deleteDoctor(@PathVariable String id){
-        return id+"deleteDoctor";
+    public String deleteDoctor(@PathVariable long id){
+        doctorService.deleteDoctor(id);
+        return id+" deleteDoctor";
     }
     @GetMapping(path="/list", params = {"searchText","page","size"})
     public String findAllDoctor(@RequestParam String searchText,
