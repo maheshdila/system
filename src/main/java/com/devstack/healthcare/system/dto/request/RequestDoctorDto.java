@@ -4,18 +4,13 @@ import lombok.*;
 
 @Getter
 @Setter
-/*
-@AllArgsConstructor
+/*@AllArgsConstructor
 @NoArgsConstructor
-@ToString
-*/
-
+@ToString*/
 @Data
-
 public class RequestDoctorDto {
     private String name;
     private String address;
     private String contact;
-    private Double salary;
-
+    private double salary;
 }

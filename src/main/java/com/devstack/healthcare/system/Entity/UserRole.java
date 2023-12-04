@@ -1,4 +1,4 @@
-package com.devstack.healthcare.system.entity;
+package com.devstack.healthcare.system.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,15 +9,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-public class Doctor {
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserRole {
     @Id
     private long id;
-    private String name;
-    private String address;
-    private String contact;
-    private double salary;
+    private String roleName;
+    private String description;
 }
